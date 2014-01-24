@@ -1,5 +1,5 @@
 <h1>Edit Glucose Result</h1>
-
+<p><%= link_to "Back to index", glucose_results_path %></p>
 <%= form_for :glucose_result, url: glucose_result_path(@glucose_result), method: :patch do |f| %>
     <p>
       <strong>User ID: </strong><%= @glucose_result.user_id %>

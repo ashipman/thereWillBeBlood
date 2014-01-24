@@ -1,4 +1,5 @@
 <h1>Listing Results</h1>
+<p><%= link_to "New glucose result", new_glucose_result_path %></p>
 <% if !@glucose_results.nil? %>
   <table class='gr-table'>
     <tr>
@@ -18,7 +19,7 @@
         <td class='<%= styleClass %>'><%= gr.result %></td>
         <td class='<%= styleClass %>'><%= gr.device %></td>
         <td class='<%= styleClass %>'><%= gr.notes %></td>
-        <td class='<%= styleClass %>'><img src='/assets/images/edit_icon.png' width='14' height='14'>&nbsp;&nbsp;<img src='/assets/images/del_icon.png' width='14' height='14'></td>
+        <td class='<%= styleClass %>'><%= link_to( image_tag( "/assets/images/view_icon.png", size: "14", alt: "View result" ), glucose_result_path( gr.id ) ) %>&nbsp;&nbsp;<%= link_to( image_tag( "/assets/images/edit_icon.png", size: '14', alt: "Edit result" ), edit_glucose_result_path( gr.id ) ) %>&nbsp;&nbsp;<%= link_to( image_tag( "/assets/images/del_icon.png", size: "14", alt: "Delete result" ), glucose_result_path( gr.id ), method: :delete, data: { confirm: "Are you sure?" } ) %></td>
 	    </tr>
 			<% i += 1 %>
     <% end %>

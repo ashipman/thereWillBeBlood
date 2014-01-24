@@ -1,4 +1,5 @@
 <h1>New Glucose Result</h1>
+<p><%= link_to "Back to index", glucose_results_path %></p>
 <%= form_for :glucose_result, url: glucose_results_path do |f| %>
   <p>
     <%= f.label :user_id %><br>
