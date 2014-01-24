@@ -1,0 +1,28 @@
+<h1>Listing Results</h1>
+<% if !@glucose_results.nil? %>
+  <table class='gr-table'>
+    <tr>
+      <th></th>
+      <th>Date/time</th>
+      <th>Reading</th>
+      <th>Source</th>
+      <th>Notes</th>
+      <th></th>
+    </tr>
+		<% i = 0 %>
+    <% @glucose_results.each do |gr| %>
+      <tr>
+				<% styleClass = (i.even?) ? "gr-dark" : "gr-light" %>
+				<td class='gr-dark'><%= gr.id %></td>
+				<td class='<%= styleClass %>'><%= gr.date_time_stamp %></td>
+        <td class='<%= styleClass %>'><%= gr.result %></td>
+        <td class='<%= styleClass %>'><%= gr.device %></td>
+        <td class='<%= styleClass %>'><%= gr.notes %></td>
+        <td class='<%= styleClass %>'><img src='/assets/images/edit_icon.png' width='14' height='14'>&nbsp;&nbsp;<img src='/assets/images/del_icon.png' width='14' height='14'></td>
+	    </tr>
+			<% i += 1 %>
+    <% end %>
+  </table>
+<% else %>
+  <p>There are no results to display.</p>
+<% end %>

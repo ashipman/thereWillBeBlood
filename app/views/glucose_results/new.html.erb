@@ -1,0 +1,26 @@
+<h1>New Glucose Result</h1>
+<%= form_for :glucose_result, url: glucose_results_path do |f| %>
+  <p>
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :date_time_stamp %><br>
+    <%= f.text_field :date_time_stamp %>
+  </p>
+  <p>
+    <%= f.label :result %><br>
+    <%= f.text_field :result %>
+  </p>
+  <p>
+    <%= f.label :device %><br>
+    <%= f.text_field :device %>
+  </p>
+  <p>
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

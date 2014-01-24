@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  date_time_stamp: 2014-01-23 20:07:17
+  result: 1
+  device: MyString
+  notes: MyString
+  in_use: false
+
+two:
+  user_id: 1
+  date_time_stamp: 2014-01-23 20:07:17
+  result: 1
+  device: MyString
+  notes: MyString
+  in_use: false

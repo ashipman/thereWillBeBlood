@@ -3,7 +3,7 @@ ThereWillBeBlood::Application.routes.draw do
 	# My routes...
 	get "welcome/index"
 
-
+	resources :glucose_results
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

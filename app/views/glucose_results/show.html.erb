@@ -1,0 +1,22 @@
+<h1>Glucose Result</h1>
+
+<p>
+  <strong>User ID: </strong>
+  <%= @glucose_result.user_id %>
+</p>
+<p>
+  <strong>Date/Time: </strong>
+  <%= @glucose_result.date_time_stamp.to_s %>
+</p>
+<p>
+  <strong>Result: </strong>
+  <%= @glucose_result.result.to_s %>
+</p>
+<p>
+  <strong>Source: </strong>
+  <%= @glucose_result.device %>
+</p>
+<p>
+  <strong>Notes: </strong>
+  <%= @glucose_result.notes %>
+</p>
