@@ -1,23 +1,27 @@
 class GlucoseResultsController < ApplicationController
 
   def new
-    # Nothing to do here - just show me the damn form!
+    # Initialise a very basic new @glucose_result instance.
+		@glucose_result = GlucoseResult.new
   end
 
   def create
     # Assign a new instance of the "GlucoseResult" class to an @instanceVariable, passing in the relevant attributes.
 		@glucose_result = GlucoseResult.new( glucose_result_params )
-		@glucose_result.in_use = 1
+		@glucose_result.in_use = true
     # Save the instance (attempt to create a db record, result will determine if we were successful.)
-    @glucose_result.save
-    # Redirct to the 'show' action.
-    redirect_to @glucose_result
+    if @glucose_result.save
+    	# Redirct to the 'show' action.
+    	redirect_to @glucose_result
+		else
+			render 'new'
+		end
   end
 
   def show
     # Update the @instanceVariable with the item we want to show by finding it in the db using the :id identifier.
     @glucose_result = GlucoseResult.find( params[:id] )
-		if @glucose_result.in_use=0
+		if @glucose_result.in_use==false
 			@glucose_result=nil
 		else
 			@glucose_result
@@ -26,7 +30,7 @@ class GlucoseResultsController < ApplicationController
 
   def index
     # Assign all existing results (that have the 'in_use' property set to true) to the @instancevariable.
-    @glucose_results = GlucoseResult.where( "in_use= 1" )
+    @glucose_results = GlucoseResult.where( "in_use = 't'" )
   end
 
   def edit

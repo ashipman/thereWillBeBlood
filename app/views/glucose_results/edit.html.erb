@@ -1,25 +1,35 @@
 <h1>Edit Glucose Result</h1>
 <p><%= link_to "Back to index", glucose_results_path %></p>
 <%= form_for :glucose_result, url: glucose_result_path(@glucose_result), method: :patch do |f| %>
-    <p>
-      <strong>User ID: </strong><%= @glucose_result.user_id %>
-    </p>
-    <p>
-      <strong>Date/time: </strong><%= @glucose_result.date_time_stamp %>
-    </p>
-    <p>
-      <%= f.label :result %><br>
-      <%= f.text_field :result %>
-    </p>
-    <p>
-      <%= f.label :device %><br>
-      <%= f.text_field :device %>
-    </p>
-    <p>
-      <%= f.label :notes %><br>
-      <%= f.text_area :notes %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
+  <% if @glucose_result.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize( @glucose_result.errors.count, "Error" ) %> prevented this result from being saved:</h2>
+			<ul>
+				<% @glucose_result.errors.full_messages.each do |err_msg| %>
+					<li><%= err_msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+  <p>
+		<strong>User ID: </strong><%= @glucose_result.user_id %>
+	</p>
+	<p>
+		<strong>Date/time: </strong><%= @glucose_result.date_time_stamp %>
+	</p>
+	<p>
+		<%= f.label :result %><br>
+		<%= f.text_field :result %>
+	</p>
+	<p>
+		<%= f.label :device %><br>
+		<%= f.text_field :device %>
+	</p>
+	<p>
+		<%= f.label :notes %><br>
+		<%= f.text_area :notes %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
 <% end %>
